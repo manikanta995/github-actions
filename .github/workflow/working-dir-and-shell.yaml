@@ -1,28 +1,17 @@
 name: working in dir and shell commands
 on: [push]
 
-jobs: 
+jobs:
   display-wd-info:
-    runs-on: ubuntu 
+    runs-on: ubuntu-latest
     steps:
-      - name: display working dir and list files
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display working dir and list files
         run: |
           pwd
           ls -a
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE 
-
-  display-wd-info-windows:
-    runs-on: windows
-    steps:
-      - name: display working dir and list files
-        run: |
-          pwd
-          ls -a
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
-
-
-  
+          echo "Commit SHA: $GITHUB_SHA"
+          echo "Repository: $GITHUB_REPOSITORY"
+          echo "Workspace: $GITHUB_WORKSPACE"
