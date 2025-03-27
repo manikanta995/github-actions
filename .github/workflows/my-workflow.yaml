@@ -1,5 +1,5 @@
-name: working in dir and shell commands
-on: [push]
+name: working in shell cmd
+on: [push]  # Fixed indentation issue
 
 jobs:
   display-wd-info:
