@@ -14,7 +14,7 @@ jobs:
           echo $GITHUB_WORKSPACE 
 
   display-wd-info-windows:
-    runs-on: windows-latest
+    runs-on: windows
     steps:
       - name: display working dir and list files
         run: |
