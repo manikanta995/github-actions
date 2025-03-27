@@ -1,0 +1,26 @@
+name: Node.js Test Workflow
+
+on: [push]
+
+jobs:
+  node-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v20
+        with:
+          node-version: 20
+
+      - name: Verify Node.js and npm Installation
+        run: |
+          node -v
+          npm -v
+
+      - name: Create and Run a Simple Node.js Script
+        run: |
+          echo "console.log('Hello from GitHub Actions!');" > test.js
+          node test.js
