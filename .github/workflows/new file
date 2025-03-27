@@ -1,0 +1,27 @@
+name: Test GitHub Actions Workflow
+
+on: [push]
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Print System Information
+        run: |
+          echo "Current Directory:"
+          pwd
+          echo "List of Files:"
+          ls -la
+          echo "OS Information:"
+          uname -a
+
+      - name: Print Environment Variables
+        run: |
+          echo "GitHub Repository: $GITHUB_REPOSITORY"
+          echo "GitHub Workspace: $GITHUB_WORKSPACE"
+          echo "Commit SHA: $GITHUB_SHA"
+          echo "Branch Name: $GITHUB_REF"
