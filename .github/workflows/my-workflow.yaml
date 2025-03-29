@@ -10,8 +10,8 @@ jobs:
 
       - name: Display working dir and list files
         run: |
-          pwd
+          pwd   
           ls -a
           echo "Commit SHA: $GITHUB_SHA"
           echo "Repository: $GITHUB_REPOSITORY"
-          echo "Workspace: $GITHUB_WORKSPACE"
+      
