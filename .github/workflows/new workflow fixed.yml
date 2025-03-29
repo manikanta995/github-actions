@@ -1,0 +1,17 @@
+name: working in shell cmd
+on: [push]  # Fixed indentation issue
+
+jobs:
+  display-wd-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display working dir and list files
+        run: |
+          pwd   
+          ls -a
+          echo "Commit SHA: $GITHUB_SHA"
+          echo "Repository: $GITHUB_REPOSITORY"
+      
