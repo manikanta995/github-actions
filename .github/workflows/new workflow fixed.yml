@@ -7,11 +7,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-    
+
       - name: Display working dir and list files
         run: |
-            pwd   
-            ls -a
-            echo "Commit SHA: $GITHUB_SHA"
-            echo "Repository: $GITHUB_REPOSITORY"
-
+          pwd   
+          ls -a
+          echo "Commit SHA: $GITHUB_SHA"
+          echo "Repository: $GITHUB_REPOSITORY"
+      
