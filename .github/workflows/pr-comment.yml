@@ -1,22 +1,23 @@
-name: Pull request comment
+name: Pull Request Comment
 on:
-    pull_request_target:
-        types: [opened]
+  pull_request:
+    types: [opened]  # Trigger only when a new PR is opened
+
 permissions:
-    pull-requests: write
-    issues: write
+  pull-requests: write  # Ensure write permissions for PRs
+
 jobs:
-    pr-comment:
-        runs-on: ubuntu-latest
-        steps:
-          - name: Comment on new PR
-            uses: actions/github-script@v6
-            with:
-              github-token: ${{ secrets.GITHUB_TOKEN }}  
-              script: |
-                github.rest.issues.createComment({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  issue_number: context.issue.number,
-                  body: 'Thanks for contributing!',
-                });
+  pr-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Comment on new PR
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}  
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.payload.pull_request.number,
+              body: '🚀 Thanks for contributing! Your PR is under review. Stay tuned! 🎉'
+            });
