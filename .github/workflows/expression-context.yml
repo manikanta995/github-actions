@@ -4,7 +4,7 @@ run-name: "expression and contexts by @${{ github.actor }} , event: ${{ github.e
 
 jobs:
     runs-on-issues-and-prs:
-        runs-on: ububtu-latest
+        runs-on: ubuntu-latest
         if: contains(fromJson('["issues","pull_request"]'), github.event_name)
         steps:
             - name: Run only if issue has a bug label
