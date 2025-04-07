@@ -1,28 +1,26 @@
 name: expressions and context
-
 on: [push, pull_request, issues, workflow_dispatch]
-
-run-name: "expression and contexts by @${{ github.actor }}, event: ${{ github.event_name }}"
+run-name: "expression and contexts by @${{ github.actor }} , event: ${{ github.event_name }}"
 
 jobs:
-  using-expression-context:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Expression examples
-        run: |
-          echo "1 evaluates to: ${{ 1 }}"
-          echo "String example: ${{ 'this is string' }}"
-          echo "Null value: ${{ null }}"
-          echo "1 > 2: ${{ 1 > 2 }}"
-          echo "true: ${{ true }}"
-          echo "'string' == 'String': ${{ 'string' == 'String' }}"
-          echo "true && false: ${{ true && false }}"
-          echo "true || (false && true): ${{ true || (false && true) }}"
-
-      - name: Dump contexts
-        run: |
-          echo "${{ toJson(github) }}"
-          echo "${{ toJson(job) }}"
-          echo "${{ toJson(secrets) }}"
-          echo "${{ toJson(steps) }}"
-          echo "${{ toJson(runner) }}"
+    using-expression-context:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Expression
+              id: expressions
+              run: |
+                echo ${{ 1 }}
+                echo ${{ 'this is string' }}
+                echo ${{ null }}
+                echo ${{ 1 > 2 }}
+                echo ${{ true }}
+                echo ${{ 'string' == 'String' }}
+                echo ${{ true && false }}
+                echo ${{ true || (false && true) }}
+            - name: Dump contexts
+              run: |
+                echo '${{ toJson(github)}}'
+                echo '${{ toJson(job)}}'
+                echo '${{ toJson(secrets)}}'    
+                echo '${{ toJson(steps)}}' 
+                echo '${{ toJson(runner)}}' 
