@@ -23,6 +23,7 @@ jobs:
                 echo ${{ 1 > 2 }}
                 echo ${{ true }}
                 echo ${{ 'string' == 'String' }}
+                echo ${{ true && false }}
                 echo ${{ true || (false && true) }}
             - name: Dump contexts
               run: |
