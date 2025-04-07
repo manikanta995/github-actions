@@ -1,6 +1,13 @@
 name: Manually trigerred
 on:
     workflow_dispatch:
+        inputs: 
+            string:
+                description: A string input
+                type: string
+                required: true
+                default: "Default value"
+
 
 jobs:
     log-info:
@@ -8,4 +15,3 @@ jobs:
         steps:
             - run: echo $GITHUB_REF
 
-            
